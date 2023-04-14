@@ -1,5 +1,6 @@
 package com.mikaeleriksson.individualassignment.services;
 
+import com.mikaeleriksson.individualassignment.entities.Address;
 import com.mikaeleriksson.individualassignment.entities.Member;
 
 import java.util.List;

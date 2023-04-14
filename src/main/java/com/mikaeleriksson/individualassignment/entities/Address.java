@@ -1,24 +1,26 @@
 package com.mikaeleriksson.individualassignment.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long postalCode;
+    private long id;
     private String street;
     private String city;
+
+//    @OneToMany
+//    private Set<Member> member;
 
     public Address() {
     }
 
-    public Address(long postalCode, String street, String city) {
-        this.postalCode = postalCode;
+    public Address(long id, String street, String city) {
+        this.id = id;
         this.street = street;
         this.city = city;
     }
@@ -28,12 +30,12 @@ public class Address {
         this.city = city;
     }
 
-    public long getPostalCode() {
-        return postalCode;
+    public long getId() {
+        return id;
     }
 
-    public void setPostalCode(long postalCode) {
-        this.postalCode = postalCode;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getStreet() {
@@ -51,4 +53,6 @@ public class Address {
     public void setCity(String city) {
         this.city = city;
     }
+
+
 }
