@@ -1,3 +1,6 @@
+    // Getting all members
+    // localhost:8080/admin/members
+
 
      // Adding a member in postman.
      // localhost:8080/admin/addmember
@@ -10,8 +13,8 @@
         "dateOfBirth": "1980-02-05",
         "address": {
             "postalCode":77554,
-            "street": "streetorCoolboro",
-            "city":"citor"
+            "street": "streetsareCool",
+            "city":"new york"
         }
     }
 

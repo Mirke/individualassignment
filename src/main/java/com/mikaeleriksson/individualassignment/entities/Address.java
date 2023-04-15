@@ -7,11 +7,12 @@ public class Address {
 
     @Id
     private long postalCode;
-    private String street;
-    private String city;
 
-//    @OneToMany
-//    private Set<Member> member;
+    @Column(length = 90)
+    private String street;
+
+    @Column(length = 90)
+    private String city;
 
     public Address() {
     }

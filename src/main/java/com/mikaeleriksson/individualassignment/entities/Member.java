@@ -10,9 +10,17 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(length = 80)
     private String firstName;
+
+    @Column(length = 80)
     private String lastName;
+
+    @Column(length = 254)
     private String email;
+
+    @Column(length = 12)
     private String phone;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
