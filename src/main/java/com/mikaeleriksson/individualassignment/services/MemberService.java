@@ -9,8 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+/**
+ * <code>MemberService</code> - Serves the Member entity to the repository
+ * @author Mikael Eriksson (mikael.eriksson@edu.edugrade.se)
+ * @version 1.0.0
+ */
+
 @Service
 public class MemberService implements  MemberServiceInterface {
+
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Properties
+    // -----------------------------------------------------------------------------------------------------------------
 
     @Autowired
     private MemberRepository memberRepository;
@@ -20,6 +30,10 @@ public class MemberService implements  MemberServiceInterface {
 
     @Autowired
     private AddressService addressService;
+
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Methods
+    // -----------------------------------------------------------------------------------------------------------------
 
     @Override
     public List<Member> getAllMembers() {

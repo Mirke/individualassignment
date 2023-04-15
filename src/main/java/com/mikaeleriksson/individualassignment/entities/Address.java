@@ -2,8 +2,18 @@ package com.mikaeleriksson.individualassignment.entities;
 
 import javax.persistence.*;
 
+/**
+ * <code>Address</code> - Address entity
+ * @author Mikael Eriksson (mikael.eriksson@edu.edugrade.se)
+ * @version 1.0.0
+ */
+
 @Entity
 public class Address {
+
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Properties
+    // -----------------------------------------------------------------------------------------------------------------
 
     @Id
     private long postalCode;
@@ -13,6 +23,10 @@ public class Address {
 
     @Column(length = 90)
     private String city;
+
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Constructors
+    // -----------------------------------------------------------------------------------------------------------------
 
     public Address() {
     }
@@ -27,6 +41,10 @@ public class Address {
         this.street = street;
         this.city = city;
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Methods
+    // -----------------------------------------------------------------------------------------------------------------
 
     public long getPostalCode() {
         return postalCode;

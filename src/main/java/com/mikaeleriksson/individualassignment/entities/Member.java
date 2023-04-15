@@ -4,8 +4,18 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * <code>Member</code> - Member entity
+ * @author Mikael Eriksson (mikael.eriksson@edu.edugrade.se)
+ * @version 1.0.0
+ */
+
 @Entity
 public class Member {
+
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Properties
+    // -----------------------------------------------------------------------------------------------------------------
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +39,10 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "address_id")
     private Address address;
+
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Constructors
+    // -----------------------------------------------------------------------------------------------------------------
 
     public Member() {
     }
@@ -69,6 +83,10 @@ public class Member {
         this.dateOfBirth = dateOfBirth;
         this.address = address;
     }
+
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Methods
+    // -----------------------------------------------------------------------------------------------------------------
 
     public long getId() {
         return id;

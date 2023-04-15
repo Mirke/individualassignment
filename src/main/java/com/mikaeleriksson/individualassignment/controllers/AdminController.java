@@ -10,8 +10,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+/**
+ * <code>AdminController</code> - CRUD commands and paths
+ * @author Mikael Eriksson (mikael.eriksson@edu.edugrade.se)
+ * @version 1.0.0
+ */
+
 @RestController
 public class AdminController {
+
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Properties
+    // -----------------------------------------------------------------------------------------------------------------
 
     @Autowired
     private MemberService memberService;
@@ -19,13 +29,15 @@ public class AdminController {
     @Autowired
     private AddressService addressService;
 
+    // -----------------------------------------------------------------------------------------------------------------
+    //   Methods CRUD
+    // -----------------------------------------------------------------------------------------------------------------
+
     @GetMapping("/admin/members")
     public List<Member> getAllMembers(){
         return memberService.getAllMembers();
     }
 
-    // Bug where it creates street and city even if there already is one , and makes a duplicate
-    //NVM they are connected as long as you write the id
     @PostMapping("/admin/addmember")
     public ResponseEntity<Member> addMember(@RequestBody Member member){
         addressService.addAddress(member.getAddress());
