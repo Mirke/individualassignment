@@ -1,9 +1,7 @@
 package com.mikaeleriksson.individualassignment.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
-
 import java.util.Date;
 
 @Entity
@@ -16,11 +14,9 @@ public class Member {
     private String lastName;
     private String email;
     private String phone;
-    private String dateOfBirth;
 
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-//    private Date dateOfBirth;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date dateOfBirth;
 
     @ManyToOne
     @JoinColumn(name = "address_id")
@@ -29,7 +25,7 @@ public class Member {
     public Member() {
     }
 
-    public Member(long id, String firstName, String lastName, String email, String phone, String dateOfBirth,Address address) {
+    public Member(long id, String firstName, String lastName, String email, String phone, Date dateOfBirth,Address address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,7 +35,7 @@ public class Member {
         this.address = address;
     }
 
-    public Member(String firstName, String lastName, String email, String phone, String dateOfBirth,Address address) {
+    public Member(String firstName, String lastName, String email, String phone, Date dateOfBirth,Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -49,7 +45,7 @@ public class Member {
 
     }
 
-    public Member(String firstName, String lastName, String email, String dateOfBirth,Address address) {
+    public Member(String firstName, String lastName, String email, Date dateOfBirth,Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -57,7 +53,7 @@ public class Member {
         this.address = address;
     }
 
-    public Member(long id, String firstName, String lastName, String email, String dateOfBirth,Address address) {
+    public Member(long id, String firstName, String lastName, String email, Date dateOfBirth,Address address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -106,11 +102,11 @@ public class Member {
         this.phone = phone;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -120,18 +116,5 @@ public class Member {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", address=" + address +
-                '}';
     }
 }

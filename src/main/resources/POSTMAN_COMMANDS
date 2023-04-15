@@ -1,0 +1,36 @@
+
+     // Adding a member in postman.
+     // localhost:8080/admin/addmember
+
+     {
+        "firstName": "Spiderman2",
+        "lastName": "Noclue",
+        "email": "noclue@hotmail.com",
+        "phone": "07023234141",
+        "dateOfBirth": "1980-02-05",
+        "address": {
+            "postalCode":77554,
+            "street": "streetorCoolboro",
+            "city":"citor"
+        }
+    }
+
+    // Delete a member
+    // localhost:8080/admin/delete/member-id
+    {"id":1}
+
+    // Updating a member
+    // localhost:8080/admin/member/member-id
+        {
+            "id":2,
+            "firstName": "Leon",
+            "lastName": "Petersson",
+            "email": "leonpetersson@hotmail.com",
+            "phone": "070321321",
+            "dateOfBirth": "1980-02-02",
+            "address": {
+                "postalCode":55555,
+                "street":"street3",
+                "city":"city3"
+            }
+        }

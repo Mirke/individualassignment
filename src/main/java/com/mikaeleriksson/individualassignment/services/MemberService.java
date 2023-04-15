@@ -7,7 +7,6 @@ import com.mikaeleriksson.individualassignment.repositories.AddressRepository;
 import com.mikaeleriksson.individualassignment.repositories.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -32,8 +31,6 @@ public class MemberService implements  MemberServiceInterface {
         return memberRepository.save(member);
     }
 
-
-
     @Override
     public void deleteMember(long id) {
         memberRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Member", "Id", id));
@@ -43,14 +40,14 @@ public class MemberService implements  MemberServiceInterface {
     @Override
     public Member updateMember(Member member, long id) {
         Member m = memberRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Member", "Id", id));
-        Address a = addressRepository.findById(m.getAddress().getId()).orElseThrow(() -> new ResourceNotFoundException("Address", "Id", m.getAddress().getId()));
+        Address a = addressRepository.findById(m.getAddress().getPostalCode()).orElseThrow(() -> new ResourceNotFoundException("Address", "Id", m.getAddress().getPostalCode()));
         m.setFirstName(member.getFirstName());
         m.setLastName(member.getLastName());
         m.setEmail(member.getEmail());
         m.setPhone(member.getPhone());
         m.setDateOfBirth(member.getDateOfBirth());
-        if(a.getId() == member.getAddress().getId()){
-            m.setAddress(addressService.updateAddress(member.getAddress(), a.getId()));
+        if(a.getPostalCode() == member.getAddress().getPostalCode()){
+            m.setAddress(addressService.updateAddress(member.getAddress(), a.getPostalCode()));
         } else {
             m.setAddress(addressService.addAddress(member.getAddress()));
         }
